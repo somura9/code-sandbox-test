@@ -106,37 +106,37 @@
  * スプレッド構文 ...
  */
 
-// 配列の展開
-const arr1 = [1, 2];
-console.log(arr1);
-// 配列の中身を順番に処理
-console.log(...arr1);
+// // 配列の展開
+// const arr1 = [1, 2];
+// console.log(arr1);
+// // 配列の中身を順番に処理
+// console.log(...arr1);
 
-const sumFunc = (num1, num2) => console.log(num1 + num2);
-sumFunc(arr1[0], arr1[1]);
-sumFunc(...arr1);
+// const sumFunc = (num1, num2) => console.log(num1 + num2);
+// sumFunc(arr1[0], arr1[1]);
+// sumFunc(...arr1);
 
-// まとめる
-const arr2 = [1, 2, 3, 4, 5];
-const [num1, num2, ...arr3] = arr2;
-console.log(num1);
-// 1
-console.log(num2);
-// 2
-console.log(arr3);
-// [3, 4, 5]
+// // まとめる
+// const arr2 = [1, 2, 3, 4, 5];
+// const [num1, num2, ...arr3] = arr2;
+// console.log(num1);
+// // 1
+// console.log(num2);
+// // 2
+// console.log(arr3);
+// // [3, 4, 5]
 
-//配列のコピー、結合
-const arr4 = [10, 20];
-const arr5 = [30, 40];
+// //配列のコピー、結合
+// const arr4 = [10, 20];
+// const arr5 = [30, 40];
 
-const arr6 = [...arr4];
-console.log(arr6);
-// [10, 20]
+// const arr6 = [...arr4];
+// console.log(arr6);
+// // [10, 20]
 
-const arr7 = [...arr4, ...arr5];
-console.log(arr7);
-// [10, 20, 30, 40]
+// const arr7 = [...arr4, ...arr5];
+// console.log(arr7);
+// // [10, 20, 30, 40]
 
 //コピーするならこれでいいと思うが、参照までコピーされてしまうのでダメ
 // const arr8 = arr4;
@@ -144,3 +144,43 @@ console.log(arr7);
 // arr8[0] = 100;
 // console.log(arr4);
 // [100, 20]
+
+/**
+ * mapやfilterを使った配列の処理
+ */
+
+const nameArr = ["田中", "山田", "曽村"];
+// 従来のfor文
+// for (let index = 0; index < nameArr.length; index++) {
+//   console.log(`${index + 1}番目は${nameArr[index]}です`);
+// }
+
+const nameArr2 = nameArr.map((name) => {
+  return name;
+});
+console.log(nameArr2);
+// ["田中", "山田", "曽村"]
+
+nameArr.map((name, index) => console.log(`${index + 1}番目は${name}です。`));
+// 田中
+// 山田
+// 曽村
+
+const numArr = [1, 2, 3, 4, 5];
+//ある条件に一致するものだけ取り出す
+const newNumArr = numArr.filter((num) => {
+  //奇数だけ
+  return num % 2 === 1;
+});
+console.log(newNumArr);
+// [1, 3, 5]
+
+const newNameArr2 = nameArr.map((name) => {
+  if (name === "曽村") {
+    return name;
+  } else {
+    return `${name}さん`;
+  }
+});
+console.log(newNameArr2);
+// ["田中さん", "山田さん", "曽村"]
