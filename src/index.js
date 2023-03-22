@@ -149,38 +149,63 @@
  * mapやfilterを使った配列の処理
  */
 
-const nameArr = ["田中", "山田", "曽村"];
-// 従来のfor文
-// for (let index = 0; index < nameArr.length; index++) {
-//   console.log(`${index + 1}番目は${nameArr[index]}です`);
-// }
+// const nameArr = ["田中", "山田", "曽村"];
+// // 従来のfor文
+// // for (let index = 0; index < nameArr.length; index++) {
+// //   console.log(`${index + 1}番目は${nameArr[index]}です`);
+// // }
 
-const nameArr2 = nameArr.map((name) => {
-  return name;
-});
-console.log(nameArr2);
-// ["田中", "山田", "曽村"]
+// const nameArr2 = nameArr.map((name) => {
+//   return name;
+// });
+// console.log(nameArr2);
+// // ["田中", "山田", "曽村"]
 
-nameArr.map((name, index) => console.log(`${index + 1}番目は${name}です。`));
-// 田中
-// 山田
-// 曽村
+// nameArr.map((name, index) => console.log(`${index + 1}番目は${name}です。`));
+// // 田中
+// // 山田
+// // 曽村
 
-const numArr = [1, 2, 3, 4, 5];
-//ある条件に一致するものだけ取り出す
-const newNumArr = numArr.filter((num) => {
-  //奇数だけ
-  return num % 2 === 1;
-});
-console.log(newNumArr);
-// [1, 3, 5]
+// const numArr = [1, 2, 3, 4, 5];
+// //ある条件に一致するものだけ取り出す
+// const newNumArr = numArr.filter((num) => {
+//   //奇数だけ
+//   return num % 2 === 1;
+// });
+// console.log(newNumArr);
+// // [1, 3, 5]
 
-const newNameArr2 = nameArr.map((name) => {
-  if (name === "曽村") {
-    return name;
-  } else {
-    return `${name}さん`;
-  }
-});
-console.log(newNameArr2);
-// ["田中さん", "山田さん", "曽村"]
+// const newNameArr2 = nameArr.map((name) => {
+//   if (name === "曽村") {
+//     return name;
+//   } else {
+//     return `${name}さん`;
+//   }
+// });
+// console.log(newNameArr2);
+// // ["田中さん", "山田さん", "曽村"]
+
+/**
+ * 三項演算子
+ */
+
+// ある条件 ? 条件がtrueの時　： 条件がfalseの時
+const val1 = 1 > 0 ? "trueです" : "falseです";
+console.log(val1);
+// trueです
+
+const num = 1300;
+// 三桁区切りにする
+console.log(num.toLocaleString());
+// 1,300
+
+// 数値の時は三桁区切り　　そうじゃなかったら数値を入れさせる
+const formattedNum =
+  typeof num === "number" ? num.toLocaleString() : "数値を入力してください";
+console.log(formattedNum);
+
+const checkSum = (num1, num2) => {
+  return num1 + num2 > 100 ? "100を超えています!!" : "許容範囲内です";
+};
+console.log(checkSum(50, 60));
+// 100を超えています!!
