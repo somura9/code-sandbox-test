@@ -55,41 +55,49 @@
  */
 // 文字列の中にJSを埋め込める
 
-const name = "somura";
-const age = "24";
-// 私の名前はsomuraです　。年齢は２４歳です　　と表示したい
+// const name = "somura";
+// const age = "24";
+// // 私の名前はsomuraです　。年齢は２４歳です　　と表示したい
 
-// 従来の方法
-const message1 = "私の名前は" + name + "です。年齢は" + age + "です。";
-console.log(message1);
+// // 従来の方法
+// const message1 = "私の名前は" + name + "です。年齢は" + age + "です。";
+// console.log(message1);
 
-// テンプレート文字列
-const message2 = `私の名前は${name}です。年齢は${age}です`;
-console.log(message2);
+// // テンプレート文字列
+// const message2 = `私の名前は${name}です。年齢は${age}です`;
+// console.log(message2);
 
-/**
- * アロー関数
- */
+// /**
+//  * アロー関数
+//  */
 
-//　従来の関数
-function func1(str) {
-  return str;
-}
-
-// こうもかける
-// const func1 = function(str) {
+// //　従来の関数
+// function func1(str) {
 //   return str;
 // }
-console.log(func1("func1です"));
 
-//アロー関数
-const func2 = (str) => {
-  return str;
-};
-// strを囲む()は省略可
-// 中身が単一式ならreturnは省略可
-// const func2 = str => str;
-console.log(func2("func2です"));
+// // こうもかける
+// // const func1 = function(str) {
+// //   return str;
+// // }
+// console.log(func1("func1です"));
 
-const func3 = (num1, num2) => num1 + num2;
-console.log(func3(10, 20));
+// //アロー関数
+// const func2 = (str) => {
+//   return str;
+// };
+// // strを囲む()は省略可
+// // 中身が単一式ならreturnは省略可
+// // const func2 = str => str;
+// console.log(func2("func2です"));
+
+// const func3 = (num1, num2) => num1 + num2;
+// console.log(func3(10, 20));
+
+/**
+ * デフォルト値、引数など
+ */
+
+const sayHello = (name = "ゲスト") => console.log(`こんにちは${name}さん!`);
+// ()内を指定しない場合はデフォルト値のゲストが表示される
+sayHello("曽村");
