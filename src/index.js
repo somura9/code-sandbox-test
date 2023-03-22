@@ -55,41 +55,68 @@
  */
 // 文字列の中にJSを埋め込める
 
-const name = "somura";
-const age = "24";
-// 私の名前はsomuraです　。年齢は２４歳です　　と表示したい
+// const name = "somura";
+// const age = "24";
+// // 私の名前はsomuraです　。年齢は２４歳です　　と表示したい
 
-// 従来の方法
-const message1 = "私の名前は" + name + "です。年齢は" + age + "です。";
-console.log(message1);
+// // 従来の方法
+// const message1 = "私の名前は" + name + "です。年齢は" + age + "です。";
+// console.log(message1);
 
-// テンプレート文字列
-const message2 = `私の名前は${name}です。年齢は${age}です`;
-console.log(message2);
+// // テンプレート文字列
+// const message2 = `私の名前は${name}です。年齢は${age}です`;
+// console.log(message2);
 
-/**
- * アロー関数
- */
+// /**
+//  * アロー関数
+//  */
 
-//　従来の関数
-function func1(str) {
-  return str;
-}
-
-// こうもかける
-// const func1 = function(str) {
+// //　従来の関数
+// function func1(str) {
 //   return str;
 // }
-console.log(func1("func1です"));
 
-//アロー関数
-const func2 = (str) => {
-  return str;
+// // こうもかける
+// // const func1 = function(str) {
+// //   return str;
+// // }
+// console.log(func1("func1です"));
+
+// //アロー関数
+// const func2 = (str) => {
+//   return str;
+// };
+// // strを囲む()は省略可
+// // 中身が単一式ならreturnは省略可
+// // const func2 = str => str;
+// console.log(func2("func2です"));
+
+// const func3 = (num1, num2) => num1 + num2;
+// console.log(func3(10, 20));
+
+/**
+ * 分割代入
+ */
+
+const myProfile = {
+  name: "曽村",
+  age: 24
 };
-// strを囲む()は省略可
-// 中身が単一式ならreturnは省略可
-// const func2 = str => str;
-console.log(func2("func2です"));
 
-const func3 = (num1, num2) => num1 + num2;
-console.log(func3(10, 20));
+const message1 = `名前は${myProfile.name}です。年齢は${myProfile.age}です。`;
+console.log(message1);
+
+//分割代入
+const { name, age } = myProfile;
+const message2 = `名前は${name}です。年齢は${age}です。`;
+console.log(message2);
+
+// 分割代入は配列にも使える
+
+const myPlofile2 = ["砂漠", 20];
+const message3 = `名前は${myPlofile2[0]}です。年齢は${myPlofile2[1]}です。`;
+console.log(message3);
+
+const [name1, age1] = myPlofile2;
+const message4 = `名前は${name1}です。年齢は${age1}歳です。`;
+console.log(message4);
